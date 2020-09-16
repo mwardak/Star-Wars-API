@@ -1,11 +1,12 @@
 import React from 'react';
 
-function SearchBar() {
+const SearchBar = () => {
   return (
-    <form>
+    <form className='text-center'>
+      <h1 className="text-center text-info">Star Wars API</h1>
       <div>
         <div>
-          <span>Character:</span>
+          <span >Character:</span> 
           <input placeholder='Search Character?'></input>
         </div>
       </div>
