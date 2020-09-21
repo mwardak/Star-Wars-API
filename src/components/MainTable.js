@@ -1,14 +1,21 @@
-import React from "react";
+import React from 'react';
 import { Table, Container } from 'react-bootstrap';
 
 
-const MainTable = () => {
+const MainTable = (props) => {
 
+  const characterRows = this.props.characters.map((character) => {
+    return character;
+  });
+   
+   
+  
   return (
     <Container>
     <div>
       <Table className='table-striped table-bordered'>
-        <tr className="thead-dark">
+        <thead>
+        <tr className='thead-dark'>
           <th>Name</th>
           <th>DOB</th>
           <th>Height</th>
@@ -16,9 +23,10 @@ const MainTable = () => {
           <th>Homeworld</th>
           <th>Species</th>
         </tr>
-        <tr>
-          <td></td>
-        </tr>
+        </thead>
+        <tbody>
+          <tr >{characterRows}</tr>
+        </tbody>
       </Table>
     </div>
     </Container>
