@@ -1,3 +1,4 @@
+import { render } from '@testing-library/react';
 import React from 'react';
 import { Table, Container } from 'react-bootstrap';
 
@@ -6,9 +7,22 @@ const MainTable = ({ characters, loading }) => {
     return <h2>Loading...</h2>;
   }
 
-
-
-  return (
+  const listOfCharacters = characters.map((character) => {
+    return(
+      <tr>
+        <td>{character.name}</td>
+        <td>{character.birth_year}</td>
+        <td>{character.height}</td>
+        <td>{character.mass}</td>
+        <td>{character.homeworld}</td>
+        <td>{character.species}</td>
+      </tr>
+    );
+  });
+  
+  
+  
+return (
     <Container>
       <div>
         <Table className='table-striped table-bordered'>
@@ -23,11 +37,12 @@ const MainTable = ({ characters, loading }) => {
             </tr>
           </thead>
           <tbody>
-            {/* <tr>{character}</tr> */}
+            <tr>{listOfCharacters}</tr>
             </tbody>
         </Table>
       </div>
     </Container>
+  
   );
 };
 
