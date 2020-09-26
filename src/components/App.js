@@ -14,9 +14,11 @@ const App = () => {
   useEffect(() => {
     const fetchCharacter = async () => {
       const response1 = await axios.get("https://swapi.dev/api/people/");
+      const additionalData = await axios.get("https://swapi.dev/api/planets/1/");
       setCharacters(response1.data.results);
+      setCharacters(additionalData.data.name);
 
-      console.log(response1);
+      console.log(additionalData.data.name);
     };
     fetchCharacter();
   }, []);

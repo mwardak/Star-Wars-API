@@ -1,12 +1,12 @@
-import React from 'react';
+import React from "react";
 
 const SearchBar = () => {
   return (
-    <form className='text-center'>
-      <h1 className='text-center text-success'>Star Wars API</h1>
+    <form className="text-center">
+      <h1 className="text-center text-success">Star Wars API</h1>
       <div>
         <div>
-          <input className='form-group ml-4 auto' placeholder='Search Character?'></input>
+          <input className="form-group ml-4 auto" placeholder=  "    Search Character?"></input>
         </div>
       </div>
     </form>
