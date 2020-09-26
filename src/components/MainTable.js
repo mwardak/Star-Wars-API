@@ -1,14 +1,13 @@
-import { render } from '@testing-library/react';
-import React from 'react';
-import { Table, Container } from 'react-bootstrap';
+import React from "react";
+import { Table, Container } from "react-bootstrap";
 
 const MainTable = ({ characters, loading }) => {
   if (loading) {
     return <h2>Loading...</h2>;
-  }
+  };
 
   const listOfCharacters = characters.map((character) => {
-    return(
+    return (
       <tr>
         <td>{character.name}</td>
         <td>{character.birth_year}</td>
@@ -19,15 +18,13 @@ const MainTable = ({ characters, loading }) => {
       </tr>
     );
   });
-  
-  
-  
-return (
+
+  return (
     <Container>
       <div>
-        <Table className='table-striped table-bordered'>
+        <Table className="table-striped table-bordered">
           <thead>
-            <tr className='thead-dark'>
+            <tr className="thead-dark">
               <th>Name</th>
               <th>DOB</th>
               <th>Height</th>
@@ -36,13 +33,10 @@ return (
               <th>Species</th>
             </tr>
           </thead>
-          <tbody>
-            <tr>{listOfCharacters}</tr>
-            </tbody>
+          <tbody>{listOfCharacters}</tbody>
         </Table>
       </div>
     </Container>
-  
   );
 };
 

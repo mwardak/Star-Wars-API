@@ -31,8 +31,8 @@ const App = () => {
   // const response9 = await axios.get('http://swapi.dev/api/people/?page=9');
 
   return (
-    <div>
-      <SearchBar />
+    <div className="container">
+      <SearchBar  />
       <MainTable
         characters={characters}
         loading={loading}
