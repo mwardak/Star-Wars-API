@@ -7,18 +7,28 @@ import axios from "axios";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [currentPage, setCurrentpage] = useState(1);
-  const [charactersPerPage, setCharactersPerPage] = useState(10);
-  const [loading, setLoading] = useState(false);
+  const[homeworldName, setHomeworldName] = useState([]);
+ 
+  // const [currentPage, setCurrentpage] = useState(1);
+  // const [charactersPerPage, setCharactersPerPage] = useState(10);
+  // const [loading, setLoading] = useState(false);
 
   useEffect(() => {
     const fetchCharacter = async () => {
-      const response1 = await axios.get("https://swapi.dev/api/people/");
-      const additionalData = await axios.get("https://swapi.dev/api/planets/1/");
-      setCharacters(response1.data.results);
-      setCharacters(additionalData.data.name);
+      const characterResponse1 = await axios.get("https://swapi.dev/api/people/");
 
-      console.log(additionalData.data.name);
+      for (const character of characterResponse1.data.results) {
+        
+        const homeWorldResponse = await axios.get(character.homeworld);
+        
+        
+        setCharacters(characterResponse1.data.results);     
+        setHomeworldName(homeWorldResponse.data.name);
+        debugger;
+      }
+
+      
+      
     };
     fetchCharacter();
   }, []);
@@ -37,10 +47,11 @@ const App = () => {
       <SearchBar  />
       <MainTable
         characters={characters}
-        loading={loading}
-        charactersPerPage={charactersPerPage}
+        homeworldName={homeworldName}
+        // loading={loading}
+        // charactersPerPage={charactersPerPage}
       />
-      <Pagination currentPage={currentPage} />
+      {/* <Pagination currentPage={currentPage} /> */}
     </div>
   );
 };
