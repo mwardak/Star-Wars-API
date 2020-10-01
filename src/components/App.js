@@ -7,7 +7,7 @@ import axios from "axios";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const[homeworldName, setHomeworldName] = useState([]);
+  
  
   // const [currentPage, setCurrentpage] = useState(1);
   // const [charactersPerPage, setCharactersPerPage] = useState(10);
@@ -17,17 +17,22 @@ const App = () => {
     const fetchCharacter = async () => {
       const characterResponse1 = await axios.get("https://swapi.dev/api/people/");
 
+     
+
       for (const character of characterResponse1.data.results) {
         
         const homeWorldResponse = await axios.get(character.homeworld);
+
+        const speciesName = await axios.get(character.species);
         
-        
-        setCharacters(characterResponse1.data.results);     
-        setHomeworldName(homeWorldResponse.data.name);
-        debugger;
+        character["worldName"] = homeWorldResponse.data.name;
+
+        character["speciesType"] = speciesName.data.species;
+
+        console.log(speciesName);
       }
 
-      
+      setCharacters(characterResponse1.data.results); 
       
     };
     fetchCharacter();
@@ -47,7 +52,7 @@ const App = () => {
       <SearchBar  />
       <MainTable
         characters={characters}
-        homeworldName={homeworldName}
+        
         // loading={loading}
         // charactersPerPage={charactersPerPage}
       />

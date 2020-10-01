@@ -13,8 +13,8 @@ const MainTable = ({ characters, loading }) => {
         <td>{character.birth_year}</td>
         <td>{character.height}</td>
         <td>{character.mass}</td>
-        <td>{character.homeworld}</td>
-        <td>{character.species}</td>
+        <td>{character.worldName}</td>
+        <td>{character.speciesType}</td>
       </tr>
     );
   });
