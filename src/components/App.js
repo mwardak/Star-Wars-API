@@ -7,9 +7,9 @@ import axios from "axios";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+
+  const [currentPage, setCurrentpage] = useState(1);
   
- 
-  // const [currentPage, setCurrentpage] = useState(1);
   // const [charactersPerPage, setCharactersPerPage] = useState(10);
   // const [loading, setLoading] = useState(false);
 
@@ -17,25 +17,26 @@ const App = () => {
     const fetchCharacter = async () => {
       const characterResponse1 = await axios.get("https://swapi.dev/api/people/");
 
-     
-
       for (const character of characterResponse1.data.results) {
-        
         const homeWorldResponse = await axios.get(character.homeworld);
 
-        const speciesName = await axios.get(character.species);
-        
         character["worldName"] = homeWorldResponse.data.name;
 
-        character["speciesType"] = speciesName.data.species;
-
-        console.log(speciesName);
+        if (character.species.length === 0) {
+          character["speciesType"] = "Human";
+        } else {
+          const speciesResponse = await axios.get(character.species[0]);
+          character["speciesType"] = speciesResponse.data.name;
+        }
       }
 
-      setCharacters(characterResponse1.data.results); 
+      setCharacters(characterResponse1.data.results);
+      
       
     };
     fetchCharacter();
+    setCurrentpage(characters);
+    
   }, []);
 
   // const response2 = await axios.get('http://swapi.dev/api/people/?page=2');
@@ -49,14 +50,13 @@ const App = () => {
 
   return (
     <div className="container">
-      <SearchBar  />
+      <SearchBar />
       <MainTable
         characters={characters}
-        
         // loading={loading}
         // charactersPerPage={charactersPerPage}
       />
-      {/* <Pagination currentPage={currentPage} /> */}
+      <Pagination currentPage={currentPage} />
     </div>
   );
 };

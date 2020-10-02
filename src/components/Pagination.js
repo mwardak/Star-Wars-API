@@ -2,10 +2,12 @@ import React from "react";
 import { Button, Container } from "react-bootstrap";
 
 export const Pagination = ({ currentPage }) => {
+debugger
+
   return (
     <Container>
       <nav>
-        <Button variant="outline-success">1</Button>{" "}
+  <Button variant="outline-success" onClick={currentPage}>1</Button>{" "}
         <Button variant="outline-success">2</Button>{" "}
         <Button variant="outline-success">3</Button>{" "}
         <Button variant="outline-success">4</Button>{" "}
