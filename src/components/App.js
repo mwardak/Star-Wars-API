@@ -15,7 +15,7 @@ const App = () => {
 
   useEffect(() => {
     const fetchCharacter = async () => {
-      const characterResponse1 = await axios.get("https://swapi.dev/api/people/");
+      const characterResponse1 = await axios.get("https://swapi.dev/api/people/?page=1");
 
       for (const character of characterResponse1.data.results) {
         const homeWorldResponse = await axios.get(character.homeworld);
@@ -35,9 +35,14 @@ const App = () => {
       
     };
     fetchCharacter();
-    setCurrentpage(characters);
+    
     
   }, []);
+
+  const getPages = async (page) => {
+    // API Call
+    // Set State to results
+   }
 
   // const response2 = await axios.get('http://swapi.dev/api/people/?page=2');
   // const response3 = await axios.get('http://swapi.dev/api/people/?page=3');
