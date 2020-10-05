@@ -15,22 +15,22 @@ const App = () => {
 
   useEffect(() => {
     const fetchCharacter = async () => {
-      const characterResponse1 = await axios.get("https://swapi.dev/api/people/?page=1");
+      // const characterResponse1 = await axios.get("https://swapi.dev/api/people/?page=1");
 
-      for (const character of characterResponse1.data.results) {
-        const homeWorldResponse = await axios.get(character.homeworld);
+      // for (const character of characterResponse1.data.results) {
+      //   const homeWorldResponse = await axios.get(character.homeworld);
 
-        character["worldName"] = homeWorldResponse.data.name;
+      //   character["worldName"] = homeWorldResponse.data.name;
 
-        if (character.species.length === 0) {
-          character["speciesType"] = "Human";
-        } else {
-          const speciesResponse = await axios.get(character.species[0]);
-          character["speciesType"] = speciesResponse.data.name;
-        }
-      }
+      //   if (character.species.length === 0) {
+      //     character["speciesType"] = "Human";
+      //   } else {
+      //     const speciesResponse = await axios.get(character.species[0]);
+      //     character["speciesType"] = speciesResponse.data.name;y
+      //   }
+      // }
 
-      setCharacters(characterResponse1.data.results);
+      
       
       
     };
@@ -40,7 +40,13 @@ const App = () => {
   }, []);
 
   const getPages = async (page) => {
+    const characterResponse1 = await axios.get(`https://swapi.dev/api/people/?page=1${page}`);
+
+    
     // API Call
+    setCurrentpage(characterResponse1.data.results);
+    console.loge(page);
+    
     // Set State to results
    }
 
@@ -61,7 +67,7 @@ const App = () => {
         // loading={loading}
         // charactersPerPage={charactersPerPage}
       />
-      <Pagination currentPage={currentPage} />
+      <Pagination getPages={getPages} currentPage={currentPage} />
     </div>
   );
 };
