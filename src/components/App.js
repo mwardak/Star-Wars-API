@@ -36,7 +36,7 @@ const App = () => {
     );
       console.log(characterResponse1);
     
-    setCurrentpage(characterResponse1.data.results);
+    setCharacters(characterResponse1.data.results);
     
   };
 

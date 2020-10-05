@@ -9,7 +9,7 @@ export const Pagination = ({ getPages, currentPage }) => {
   }
 
   const paginate = pages.map((page) => (
-    <Button onClick={(e) => getPages()} variant="outline-success"    >
+    <Button key={page} onClick={(e) => getPages()} variant="outline-success"    >
       {page}    
     </Button>
   ));
