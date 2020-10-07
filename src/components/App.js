@@ -23,7 +23,7 @@ const App = () => {
       //     character["speciesType"] = "Human";
       //   } else {
       //     const speciesResponse = await axios.get(character.species[0]);
-      //     character["speciesType"] = speciesResponse.data.name;y
+      //     character["speciesType"] = speciesResponse.data.name;
       //   }
       // }
     };
@@ -31,23 +31,31 @@ const App = () => {
   }, []);
 
   const getPages = async (page) => {
-    const characterResponse1 = await axios.get(
-      "https://swapi.dev/api/people/?page=1"
-    );
-      console.log(characterResponse1);
-    
-    setCharacters(characterResponse1.data.results);
-    
-  };
+  
 
-  // const response2 = await axios.get('http://swapi.dev/api/people/?page=2');
-  // const response3 = await axios.get('http://swapi.dev/api/people/?page=3');
-  // const response4 = await axios.get('http://swapi.dev/api/people/?page=4');
-  // const response5 = await axios.get('http://swapi.dev/api/people/?page=5');
-  // const response6 = await axios.get('http://swapi.dev/api/people/?page=6');
-  // const response7 = await axios.get('http://swapi.dev/api/people/?page=7');
-  // const response8 = await axios.get('http://swapi.dev/api/people/?page=8');
-  // const response9 = await axios.get('http://swapi.dev/api/people/?page=9');
+      const characterResponse1 = await axios.get(`https://swapi.dev/api/people/?page=${page}`);
+      for (const character of characterResponse1.data.results) {
+        const homeWorldResponse = await axios.get(character.homeworld);
+        character["worldName"] = homeWorldResponse.data.name;
+        if (character.species.length === 0) {
+          character["speciesType"] = "Human";
+        } else {
+          const speciesResponse = await axios.get(character.species[0]);
+          character["speciesType"] = speciesResponse.data.name;
+        }
+        setCharacters(characterResponse1.data.results);
+      }
+  };
+ 
+
+  // const characterResponse2 = await axios.get('http://swapi.dev/api/people/?page=2');
+  // const characterResponse3 = await axios.get('http://swapi.dev/api/people/?page=3');
+  // const characterResponse4 = await axios.get('http://swapi.dev/api/people/?page=4');
+  // const characterResponse5 = await axios.get('http://swapi.dev/api/people/?page=5');
+  // const characterResponse6 = await axios.get('http://swapi.dev/api/people/?page=6');
+  // const characterResponse7 = await axios.get('http://swapi.dev/api/people/?page=7');
+  // const characterResponse8 = await axios.get('http://swapi.dev/api/people/?page=8');
+  // const characterResponse9 = await axios.get('http://swapi.dev/api/people/?page=9');
 
   return (
     <div className="container">
@@ -57,7 +65,7 @@ const App = () => {
         // loading={loading}
         // charactersPerPage={charactersPerPage}
       />
-      <Pagination getPages={getPages} currentPage={currentPage} />
+      <Pagination getPages={getPages} />
     </div>
   );
 };
