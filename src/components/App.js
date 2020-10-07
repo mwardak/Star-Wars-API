@@ -8,45 +8,35 @@ import axios from "axios";
 const App = () => {
   const [characters, setCharacters] = useState([]);
 
-  const [currentPage, setCurrentpage] = useState(1);
-
-  // const [charactersPerPage, setCharactersPerPage] = useState(10);
-  // const [loading, setLoading] = useState(false);
-
+  const fetchCharacter = async () => {
+    const characterResponse1 = await axios.get("https://swapi.dev/api/people/");
+    for (const character of characterResponse1.data.results) {
+      const homeWorldResponse = await axios.get(character.homeworld);
+      character["worldName"] = homeWorldResponse.data.name;
+      setCharacters(characterResponse1.data.results);
+      
+      if (character.species.length === 0) {
+        character["speciesType"] = "Human";
+      } else {
+        const speciesResponse = await axios.get(character.species[0]);
+        character["speciesType"] = speciesResponse.data.name;
+       
+      } 
+      setCharacters(characterResponse1.data.results);
+      
+    }
+  };
   useEffect(() => {
-    const fetchCharacter = async () => {
-      // const characterResponse1 = await axios.get("https://swapi.dev/api/people/?page=1");
-      // for (const character of characterResponse1.data.results) {
-      //   const homeWorldResponse = await axios.get(character.homeworld);
-      //   character["worldName"] = homeWorldResponse.data.name;
-      //   if (character.species.length === 0) {
-      //     character["speciesType"] = "Human";
-      //   } else {
-      //     const speciesResponse = await axios.get(character.species[0]);
-      //     character["speciesType"] = speciesResponse.data.name;
-      //   }
-      // }
-    };
+    
     fetchCharacter();
+    
   }, []);
 
   const getPages = async (page) => {
-  
+    const characterResponse1 = await axios.get(`https://swapi.dev/api/people/?page=${page}`);
 
-      const characterResponse1 = await axios.get(`https://swapi.dev/api/people/?page=${page}`);
-      for (const character of characterResponse1.data.results) {
-        const homeWorldResponse = await axios.get(character.homeworld);
-        character["worldName"] = homeWorldResponse.data.name;
-        if (character.species.length === 0) {
-          character["speciesType"] = "Human";
-        } else {
-          const speciesResponse = await axios.get(character.species[0]);
-          character["speciesType"] = speciesResponse.data.name;
-        }
-        setCharacters(characterResponse1.data.results);
-      }
+    setCharacters(characterResponse1.data.results);
   };
- 
 
   // const characterResponse2 = await axios.get('http://swapi.dev/api/people/?page=2');
   // const characterResponse3 = await axios.get('http://swapi.dev/api/people/?page=3');
@@ -63,7 +53,6 @@ const App = () => {
       <MainTable
         characters={characters}
         // loading={loading}
-        // charactersPerPage={charactersPerPage}
       />
       <Pagination getPages={getPages} />
     </div>
