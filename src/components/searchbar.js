@@ -1,16 +1,22 @@
 import React from "react";
 
-const SearchBar = () => {
+
+const SearchBar = ({characters, characterSearch}) => {
+
+
+
+
   return (
-    <form className="text-center">
+    <form onSubmit={(e) => characterSearch(e)} className="text-center">
       <h1 className="text-center text-success">Star Wars API</h1>
       <div>
         <div>
-          <input className="form-group ml-4 auto" placeholder=  "    Search Character"></input>
+          <input  ref={characters} type="text"  className="form-group ml-4 auto" placeholder=  "    Search Character"></input>
         </div>
       </div>
     </form>
   );
 }
+
 
 export default SearchBar;

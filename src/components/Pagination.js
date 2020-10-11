@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Container } from "react-bootstrap";
 
-const Pagination = ({ getPages, currentPage }) => {
+const Pagination = ({ getPages }) => {
   let pages = [];
 
   for (let i = 1; i <= 9; i++) {

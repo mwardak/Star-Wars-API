@@ -4,6 +4,7 @@ import { Table, Container } from "react-bootstrap";
 const MainTable = ({ characters, loading }) => {
   // if (loading) {
   //   return <h2>Loading...</h2>;
+  
   // };
 
   const listOfCharacters = characters.map((character) => {
