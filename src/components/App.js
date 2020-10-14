@@ -35,18 +35,30 @@ const App = () => {
   };
 
   
-  const characterSearch = (e) => {
+  const handleOnChange = (e) => {
   
-    // const { value } = e.target.value;
-    // setCharacters(value); 
-    console.log(e)
+    const { value } = e.target;
+    // setCharacters(e.target);
+
+    console.log(value);
+    
+    
   };
+
+  // const handleOnSubmit = (e) => {
+
+  //       console.log(e.target);
+    
+  //       if (e.target.value) {
+  //         setCharacters(e.target.value); 
+  //       }
+  // };
 
 
 
   return (
     <div className="container">
-      <SearchBar characterSearch={characterSearch} />
+      <SearchBar handleOnChange={handleOnChange}/>
       <MainTable
         characters={characters}
         // loading={loading}

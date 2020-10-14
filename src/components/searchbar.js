@@ -1,17 +1,17 @@
 import React from "react";
 
 
-const SearchBar = ({characters, characterSearch}) => {
+const SearchBar = ({characters, handleOnChange}) => {
 
 
 
 
   return (
-    <form onSubmit={(e) => characterSearch(e)} className="text-center">
+    <form  className="text-center">
       <h1 className="text-center text-success">Star Wars API</h1>
       <div>
         <div>
-          <input  ref={characters} type="text"  className="form-group ml-4 auto" placeholder=  "    Search Character"></input>
+          <input value={characters} onChange={(e) => handleOnChange(e)} ref={characters} type="text"  className="form-group ml-4 auto" placeholder=  "   Search Character"></input>
         </div>
       </div>
     </form>
