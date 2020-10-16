@@ -1,14 +1,17 @@
 import React from "react";
 import { Table, Container } from "react-bootstrap";
 
+
 const MainTable = ({ characters, loading }) => {
   // if (loading) {
   //   return <h2>Loading...</h2>;
   
+
   // };
 
   const listOfCharacters = characters.map((character) => {
     return (
+      
       <tr>
         <td>{character.name}</td>
         <td>{character.birth_year}</td>
@@ -22,6 +25,7 @@ const MainTable = ({ characters, loading }) => {
 
   return (
     <Container>
+      
       <div>
         <Table className="table-striped table-bordered">
           <thead>

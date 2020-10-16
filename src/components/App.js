@@ -4,6 +4,7 @@ import MainTable from "./MainTable";
 import Pagination from "./Pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
+import BackGround from "./BackGround";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
@@ -29,25 +30,20 @@ const App = () => {
     fetchCharacter(1);
   }, []);
 
-
   const getPages = async (page) => {
     fetchCharacter(page);
   };
 
-  
-  const characterSearch = async (searchTerm) =>{
-    const characterSearchResponse = await axios.get("https://swapi.dev/api/people/?search=" + searchTerm);
+  const characterSearch = async (searchTerm) => {
+    const characterSearchResponse = await axios.get(
+      "https://swapi.dev/api/people/?search=" + searchTerm
+    );
     setCharacters(characterSearchResponse.data.results);
-    
   };
-  
-
-
-
 
   return (
     <div className="container">
-      <SearchBar characterSearch={characterSearch}/>
+      <SearchBar characterSearch={characterSearch} />
       <MainTable
         characters={characters}
         // loading={loading}
