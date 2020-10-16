@@ -4,7 +4,7 @@ import MainTable from "./MainTable";
 import Pagination from "./Pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-import BackGround from "./BackGround";
+import "./BackGround.css";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
