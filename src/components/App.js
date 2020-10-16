@@ -10,7 +10,7 @@ const App = () => {
 
   const fetchCharacter = async (page) => {
     const characterResponse1 = await axios.get(
-      "https://swapi.py4e.com/api/people/?page=" + page
+      "https://swapi.dev/api/people/?page=" + page
     );
     for (const character of characterResponse1.data.results) {
       const homeWorldResponse = await axios.get(character.homeworld);
@@ -35,30 +35,19 @@ const App = () => {
   };
 
   
-  const handleOnChange = (e) => {
-  
-    const { value } = e.target;
-    // setCharacters(e.target);
-
-    console.log(value);
-    
+  const characterSearch = async (searchTerm) =>{
+    const characterSearchResponse = await axios.get("https://swapi.dev/api/people/?search=" + searchTerm);
+    setCharacters(characterSearchResponse.data.results);
     
   };
+  
 
-  // const handleOnSubmit = (e) => {
-
-  //       console.log(e.target);
-    
-  //       if (e.target.value) {
-  //         setCharacters(e.target.value); 
-  //       }
-  // };
 
 
 
   return (
     <div className="container">
-      <SearchBar handleOnChange={handleOnChange}/>
+      <SearchBar characterSearch={characterSearch}/>
       <MainTable
         characters={characters}
         // loading={loading}

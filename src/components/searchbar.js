@@ -1,17 +1,22 @@
-import React from "react";
+import React, {useRef} from "react";
 
 
-const SearchBar = ({characters, handleOnChange}) => {
+const SearchBar = ({characterSearch}) => {
 
 
-
+const searchRef = useRef("");
 
   return (
-    <form  className="text-center">
+    <form  className="text-center"
+           onSubmit={(e) => {e.preventDefault(); characterSearch(searchRef.current.value);}}>
       <h1 className="text-center text-success">Star Wars API</h1>
       <div>
         <div>
-          <input value={characters} onChange={(e) => handleOnChange(e)} ref={characters} type="text"  className="form-group ml-4 auto" placeholder=  "   Search Character"></input>
+          <input 
+          ref={searchRef} 
+          type="text"  
+          className="form-group ml-4 auto" 
+          placeholder=  "   Search Character"></input>
         </div>
       </div>
     </form>
