@@ -11,7 +11,7 @@ const SearchBar = ({ characterSearch }) => {
         characterSearch(searchRef.current.value);
       }}
     >
-      <h1 >Star Wars API</h1>
+      <h1 className="form-group ml-4 auto">STAR WARS API</h1>
       <div>
         <div>
           <input
