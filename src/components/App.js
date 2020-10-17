@@ -4,10 +4,11 @@ import MainTable from "./MainTable";
 import Pagination from "./Pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
 import axios from "axios";
-// import "./styles.css";
+import "../styles.css";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
+  const [loading, setLoading] = useState("")
 
   const fetchCharacter = async (page) => {
     const characterResponse1 = await axios.get(
@@ -46,7 +47,7 @@ const App = () => {
       <SearchBar characterSearch={characterSearch} />
       <MainTable
         characters={characters}
-        // loading={loading}
+        loading={loading}
       />
       <Pagination getPages={getPages} />
     </div>

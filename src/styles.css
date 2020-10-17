@@ -1,3 +1,12 @@
-/* body {
-    background-image: url(src/star-wars.png);
-} */
+body {
+    background-image: url("./images/dark2.png")
+
+}
+
+tr {
+    color: rgb(247, 247, 234);
+}
+
+form {
+    color: rgb(27, 199, 50);
+}
