@@ -8,9 +8,10 @@ import "../styles.css";
 
 const App = () => {
   const [characters, setCharacters] = useState([]);
-  const [loading, setLoading] = useState("")
+  const [loading, setLoading] = useState(false);
 
   const fetchCharacter = async (page) => {
+    setLoading(true);
     const characterResponse1 = await axios.get(
       "https://swapi.dev/api/people/?page=" + page
     );
@@ -26,6 +27,7 @@ const App = () => {
       }
     }
     setCharacters(characterResponse1.data.results);
+    setLoading(false);
   };
   useEffect(() => {
     fetchCharacter(1);
@@ -36,19 +38,29 @@ const App = () => {
   };
 
   const characterSearch = async (searchTerm) => {
+    setLoading(true);
     const characterSearchResponse = await axios.get(
       "https://swapi.dev/api/people/?search=" + searchTerm
     );
+    for (const character of characterSearchResponse.data.results) {
+      const homeWorldResponse = await axios.get(character.homeworld);
+      character["worldName"] = homeWorldResponse.data.name;
+
+      if (character.species.length === 0) {
+        character["speciesType"] = "Human";
+      } else {
+        const speciesResponse = await axios.get(character.species[0]);
+        character["speciesType"] = speciesResponse.data.name;
+      }
+    }
     setCharacters(characterSearchResponse.data.results);
+    setLoading(false);
   };
 
   return (
     <div className="container">
       <SearchBar characterSearch={characterSearch} />
-      <MainTable
-        characters={characters}
-        loading={loading}
-      />
+      <MainTable characters={characters} loading={loading} />
       <Pagination getPages={getPages} />
     </div>
   );

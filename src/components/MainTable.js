@@ -3,9 +3,13 @@ import { Table, Container } from "react-bootstrap";
 
 const MainTable = ({ characters, loading }) => {
   if (loading) {
-    return <h2>Loading...</h2>;
-
-  };
+    return (
+      <div>
+        <h2>loading...</h2>
+        <h3></h3>
+      </div>
+    );
+  }
 
   const listOfCharacters = characters.map((character) => {
     return (
@@ -34,6 +38,7 @@ const MainTable = ({ characters, loading }) => {
               <th>Species</th>
             </tr>
           </thead>
+
           <tbody>{listOfCharacters}</tbody>
         </Table>
       </div>
