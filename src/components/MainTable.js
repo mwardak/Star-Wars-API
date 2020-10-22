@@ -4,9 +4,10 @@ import { Table, Container } from "react-bootstrap";
 const MainTable = ({ characters, loading }) => {
   if (loading) {
     return (
-      <div>
-        <h2>loading...</h2>
-        <h3></h3>
+      <div >
+        <h2 >loading... <span className="spinner-grow text-light"></span></h2>
+        
+       
       </div>
     );
   }

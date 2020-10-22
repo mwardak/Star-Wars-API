@@ -1,24 +1,46 @@
-# Star Wars API (REACT)
+# Star Wars API 
 
-Built this app with react and data from the swapi.dev api
+I built this app with react and data from the swapi.dev api
+
+
+<br>
+<p>To check out the app click 
+<a href="" rel="nofollow">HERE</a>
+</p>
+<br>
+
+<image src ="star-war-api.PNG" width="600" height="400" >
 
 
 <br>
 
-To view the App, click here --> 
-
-<br>
-
-<image src ="star-war-api.PNG" width="1000" height="6000" >
-
-
-<br>
+<div>
+<br></br>
+</div>
 
 ## Summary
 
- I created this app to learn about external api's .  
+ I created this app to learn how data is retrieved from an external api. I decided to use functional componenst to build this app and found it easier to work with vs class components. 
 
+ 
 
+ <div>
+<br></br>
+</div>
+
+<strong>Technologies Used:</strong>
+
+ <ul>
+    <li>React w/Hooks</li>
+    <li>Axios Async/Await</li>
+    <li>useEffect</li>
+    <li>Pagination</li>
+    <li>Bootstrap</li>
+ </ul>
+
+ <div>
+<br></br>
+</div>
 
 
 <div>
