@@ -7,15 +7,13 @@ I built this app with react and data from the swapi.dev api
 <p>To check out the app click 
 <a href="" rel="nofollow">HERE</a>
 </p>
-<br>
 
+<br>
 <image src ="star-war-api.png" width="600" height="400" >
-
-
-<br>
+</br>
 
 <div>
-<br></br>
+<br><br/>
 </div>
 
 ## Summary
