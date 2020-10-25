@@ -9,31 +9,28 @@ I built this app with react and data from the swapi.dev api
 </p>
 
 <br>
-<image src ="star-war-api.png" width="600" height="400" >
+<image src ="star-war-api.png" width="750" height="400" >
 </br>
-
-<div>
-<br><br/>
-</div>
+</br>
 
 ## Summary
 
  I created this app to learn how data is retrieved from an external api. I decided to use functional componenst to build this app and found it easier to work with vs class components. 
 
- 
+ I also learned how to create pagination functionality around the resulting data returned from the Star Wars Api. This was challengin at first but after finding the solution I realized that it was easier than I thought. Bootstrap also saved me hours of styling in CSS and gave it a nice subtle design. As I continue my journey into software development my appreciation for React has grown.    
 
- <div>
-<br></br>
-</div>
+ </br>
 
-<strong>Technologies Used:</strong>
+
+## Technologies/ Libraries Used:
 
  <ul>
-    <li>React w/Hooks</li>
-    <li>Axios Async/Await</li>
-    <li>useEffect</li>
-    <li>Pagination</li>
+    <li>React</li>
+    <ul><li>Functional components w/Hooks</li></ul>
+    <li>swapi.dev API (Star Wars Data)</li>
+    <li>Axios</li>
     <li>Bootstrap</li>
+    <li>Heroku</li>
  </ul>
 
  <div>
