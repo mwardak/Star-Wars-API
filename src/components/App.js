@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import SearchBar from "./SearchBar";
+import SearchBar from "./Search";
 import MainTable from "./MainTable";
 import Pagination from "./Pagination";
 import "bootstrap/dist/css/bootstrap.min.css";
