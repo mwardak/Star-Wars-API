@@ -5,7 +5,7 @@ I built this app with react and data from the swapi.dev api
 
 <br>
 <p>To check out the app click 
-<a href="" rel="nofollow">HERE</a>
+<a href="https://mw-starwars-api.herokuapp.com/" rel="nofollow">HERE</a>
 </p>
 
 <br>
