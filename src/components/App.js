@@ -45,13 +45,15 @@ const App = () => {
       "https://swapi.dev/api/people/?search=" + searchTerm
     );
     for (const character of characterSearchResponse.data.results) {
-      const homeWorldResponse = await axios.get(character.homeworld);
+      const planet = character.homeworld.replace("http", "https");
+      const homeWorldResponse = await axios.get(planet);
       character["worldName"] = homeWorldResponse.data.name;
 
       if (character.species.length === 0) {
         character["speciesType"] = "Human";
       } else {
-        const speciesResponse = await axios.get(character.species[0]);
+        const species = character.species[0].replace("http", "https");
+        const speciesResponse = await axios.get(species);
         character["speciesType"] = speciesResponse.data.name;
       }
     }
