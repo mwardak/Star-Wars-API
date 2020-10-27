@@ -17,7 +17,7 @@ I built this app with react and data from the swapi.dev api
 
  I created this app to learn how data is retrieved from an external api. I decided to use functional componenst to build this app and found it easier to work with vs class components. 
 
- I also learned how to create pagination functionality around the resulting data returned from the Star Wars Api. This was challengin at first but after finding the solution I realized that it was easier than I thought. Bootstrap also saved me hours of styling in CSS and gave it a nice subtle design. As I continue my journey into software development my appreciation for React has grown.    
+ I also learned how to create pagination functionality around the resulting data returned from the Star Wars Api. This was challengin at first but after finding the solution I realized that it was easier than I thought. Bootstrap also saved me hours of styling in CSS and gave the app a nice subtle design. React is the first JavaScript library  that I have actually enjoyed learning and plan to stick with as I cotinue building apps.  
 
  </br>
 
