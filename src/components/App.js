@@ -13,19 +13,19 @@ const App = () => {
   const fetchCharacter = async (page) => {
     setLoading(true);
     const characterResponse1 = await axios.get(
-      "https://swapi.dev/api/people/?page=" + page
+      `https://swapi.dev/api/people/?page=${page}`
     );
     for (const character of characterResponse1.data.results) {
       const planet = character.homeworld.replace("http", "https");
       const homeWorldResponse = await axios.get(planet);
-      character["worldName"] = homeWorldResponse.data.name;
+      character.homeworld = homeWorldResponse.data.name;
 
       if (character.species.length === 0) {
-        character["speciesType"] = "Human";
+        character.species = "Human";
       } else {
         const species = character.species[0].replace("http", "https");
         const speciesResponse = await axios.get(species);
-        character["speciesType"] = speciesResponse.data.name;
+        character.species = speciesResponse.data.name;
       }
     }
     setCharacters(characterResponse1.data.results);
@@ -42,19 +42,19 @@ const App = () => {
   const characterSearch = async (searchTerm) => {
     setLoading(true);
     const characterSearchResponse = await axios.get(
-      "https://swapi.dev/api/people/?search=" + searchTerm
+      `https://swapi.dev/api/people/?search=${searchTerm}`
     );
     for (const character of characterSearchResponse.data.results) {
       const planet = character.homeworld.replace("http", "https");
       const homeWorldResponse = await axios.get(planet);
-      character["worldName"] = homeWorldResponse.data.name;
+      character.homeworld = homeWorldResponse.data.name;
 
       if (character.species.length === 0) {
-        character["speciesType"] = "Human";
+        character.species = "Human";
       } else {
         const species = character.species[0].replace("http", "https");
         const speciesResponse = await axios.get(species);
-        character["speciesType"] = speciesResponse.data.name;
+        character.species = speciesResponse.data.name;
       }
     }
     setCharacters(characterSearchResponse.data.results);

@@ -9,7 +9,7 @@ const Pagination = ({ getPages }) => {
   }
 
   const paginate = pages.map((page) => (
-    <Button key={page} onClick={() => getPages(page)} variant="outline-success">
+    <Button key={page} onClick={() => getPages(page)} variant="success ml-2">
       {page}
     </Button>
   ));
