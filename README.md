@@ -9,7 +9,7 @@ I built this app with react and data from the swapi.dev api
 </p>
 
 <br>
-<image src ="star-war-api.png" width="850" height="400" >
+<image src ="src\images\star-wars.png" width="850" height="400" >
 </br>
 </br>
 
