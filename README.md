@@ -52,5 +52,5 @@ I built this app with react and data from the swapi.dev api
 ## Author
 
 <ul>
-<li><strong>Maher Wardak</strong> - <em>Full-Stack Software Developer</em> - <a href="" rel="nofollow">LinkedIn</a></li>
+<li><strong>Maher Wardak</strong> - <em>Full-Stack Software Developer</em> - <a href="https://www.linkedin.com/in/maherwardak/" rel="nofollow">LinkedIn</a></li>
 </ul>
